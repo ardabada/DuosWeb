@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using Nancy;
 
 namespace DuosWeb
 {
@@ -11,7 +13,10 @@ namespace DuosWeb
         {
             Get["/"] = _ =>
             {
-                string result = "XFF:" + Request.Headers["X-Forwarded-For"] + "; UHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
+                var h = Request.Headers["X-Forwarded-For"];
+                List<string> s = new List<string>(h);
+                string r = s.FirstOrDefault();
+                string result = "XFF:" + r + "; UHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
                 return result;
             };
         }
