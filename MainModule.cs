@@ -11,7 +11,7 @@ namespace DuosWeb
         {
             Get["/"] = _ =>
             {
-                string result = "UsHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
+                string result = "UHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
                 return result;
             };
         }
