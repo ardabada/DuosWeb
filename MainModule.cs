@@ -11,7 +11,7 @@ namespace DuosWeb
         {
             Get["/"] = _ =>
             {
-                string result = "UHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
+                string result = "XFF:" + Request.Headers["X-Forwarded-For"] + "; UHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
                 return result;
             };
         }
