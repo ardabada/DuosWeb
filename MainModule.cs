@@ -13,6 +13,7 @@ namespace DuosWeb
         {
             Get["/"] = _ =>
             {
+                string full = "HXFF: ";
                 System.Web.HttpContext context = System.Web.HttpContext.Current;
                 string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
 
@@ -21,16 +22,16 @@ namespace DuosWeb
                     string[] addresses = ipAddress.Split(',');
                     if (addresses.Length != 0)
                     {
-                        return addresses[0];
+                        full += addresses[0] + "; ";
                     }
                 }
 
-                return context.Request.ServerVariables["REMOTE_ADDR"];
+                full += "RA: " + context.Request.ServerVariables["REMOTE_ADDR"];
                 var h = Request.Headers["X-Forwarded-For"];
                 List<string> s = new List<string>(h);
                 string r = s.FirstOrDefault();
-                string result = "XFF:" + r + "; UHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
-                return result;
+                full  += "; XFF:" + r + "; UHA: " + Request.UserHostAddress + "; UA: " + Request.Headers.UserAgent;
+                return full;
             };
         }
     }
