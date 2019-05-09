@@ -64,7 +64,7 @@ namespace DuosWeb
             raw += Environment.NewLine;
             
             raw += "<b>Query:</b><br>" + string.Join("&", new RouteValueDictionary(Request.Query).Select(x => x.Key + "=" + x.Value));
-            raw += "<b>Body:</b><br>" + new System.IO.StreamReader(Request.Body).ReadToEnd();
+            raw += "<br><b>Body:</b><br>" + new System.IO.StreamReader(Request.Body).ReadToEnd();
             return raw;
         }
     }
