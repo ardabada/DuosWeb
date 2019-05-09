@@ -53,12 +53,12 @@ namespace DuosWeb
             string q = string.Join("&", dict.ToDictionary().Select(x => x.Key + "=" + x.Value));
 
 
-            string raw = Request.Method + " " + Request.Path + (string.IsNullOrEmpty(q) ? string.Empty : "?" + q) + " " + Request.ProtocolVersion + Environment.NewLine;
-            raw += Request.UserHostAddress + Environment.NewLine;
+            string raw = Request.Method + " " + Request.Path + (string.IsNullOrEmpty(q) ? string.Empty : "?" + q) + " " + Request.ProtocolVersion + "<br>";
+            raw += Request.UserHostAddress + "<br>";
             foreach (var r in Request.Headers)
             {
                 foreach (var v in r.Value)
-                    raw += r.Key + ": " + v + Environment.NewLine;
+                    raw += r.Key + ": " + v + "<br>";
             }
             raw += Environment.NewLine;
             raw += new System.IO.StreamReader(Request.Body).ReadToEnd();
