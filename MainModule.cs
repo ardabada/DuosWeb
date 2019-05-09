@@ -21,14 +21,17 @@ namespace DuosWeb
                 return Response.AsText(getRaw());
             };
 
-            Get["/tomtom"] = _ =>
+            Get["/tomtom/add"] = _ =>
             {
                 Data.Add(new RequestEntry()
                 {
                     Date = DateTime.Now,
                     Ip = Request.UserHostAddress + " (" + Request.Headers["X-Forwarded-For"] + ")"
                 });
-
+                return "added";
+            };
+            Get["/tomtom/list"] = _ =>
+            {
                 string result = "Now: " + DateTime.Now.ToLongTimeString() + "<br>";
                 foreach (var d in Data)
                 {
