@@ -22,7 +22,7 @@ namespace DuosWeb
                 return Response.AsText(getRaw());
             };
 
-            Get["/tomtom/add/{any}"] = _ =>
+            Get["/tomtom/add"] = _ =>
             {
                 Data.Add(new RequestEntry()
                 {
