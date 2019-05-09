@@ -36,3 +36,5 @@ E:\Alex job\C#\DuosApphb\DuosWeb\obj\Debug\DuosWeb.dll
 E:\Alex job\C#\DuosApphb\DuosWeb\obj\Debug\DuosWeb.pdb
 E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.dll
 E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.xml
+E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.Hosting.Aspnet.dll
+E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.Hosting.Aspnet.xml
