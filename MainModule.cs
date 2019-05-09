@@ -29,7 +29,7 @@ namespace DuosWeb
                     Date = DateTime.Now,
                     Info = getRaw()
                 });
-                return "added";
+                return "<!-- added -->";
             };
             Get["/tomtom/list"] = _ =>
             {
