@@ -8,6 +8,6 @@ namespace DuosWeb
     public class RequestEntry
     {
         public DateTime Date { get; set; }
-        public string Ip { get; set; }
+        public string Info { get; set; }
     }
 }

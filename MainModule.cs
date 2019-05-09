@@ -23,13 +23,10 @@ namespace DuosWeb
 
             Get["/tomtom/add"] = _ =>
             {
-                string ip = "";
-                foreach (var v in Request.Headers["X-Forwarded-For"])
-                    ip += v + ", ";
                 Data.Add(new RequestEntry()
                 {
                     Date = DateTime.Now,
-                    Ip = Request.UserHostAddress + " (" + ip + ")"
+                    Info = getRaw()
                 });
                 return "added";
             };
@@ -38,7 +35,7 @@ namespace DuosWeb
                 string result = "Now: " + DateTime.Now.ToLongTimeString() + "<br>";
                 foreach (var d in Data)
                 {
-                    result += d.Date.ToLongTimeString() + ": " + d.Ip + "<br>";
+                    result += "<h1>" + d.Date.ToLongTimeString() + "</h1><p>" + HttpUtility.HtmlEncode(d.Info) + "<p>";
                 }
 
                 return result;
