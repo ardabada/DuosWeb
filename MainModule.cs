@@ -26,7 +26,7 @@ namespace DuosWeb
                 Data.Add(new RequestEntry()
                 {
                     Date = DateTime.Now,
-                    Ip = Request.UserHostAddress + " (" + Request.Headers["X-Forwarded-For"] + ")"
+                    Ip = Request.UserHostAddress + " (" + string.Join(", ", Request.Headers["X-Forwarded-For"]) + ")"
                 });
                 return "added";
             };
