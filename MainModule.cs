@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Routing;
 using Nancy;
 
 namespace DuosWeb
@@ -35,7 +36,7 @@ namespace DuosWeb
                 string result = "Now: " + DateTime.Now.ToLongTimeString() + "<br>";
                 foreach (var d in Data)
                 {
-                    result += "<h1>" + d.Date.ToLongTimeString() + "</h1><p>" + HttpUtility.HtmlEncode(d.Info) + "<p>";
+                    result += "<h1>" + d.Date.ToLongTimeString() + "</h1><p>" + d.Info + "<p>";
                 }
 
                 return result;
@@ -61,7 +62,9 @@ namespace DuosWeb
                     raw += r.Key + ": " + v + "<br>";
             }
             raw += Environment.NewLine;
-            raw += new System.IO.StreamReader(Request.Body).ReadToEnd();
+            
+            raw += "<b>Query:</b><br>" + string.Join("&", new RouteValueDictionary(Request.Query).Select(x => x.Key + "=" + x.Value));
+            raw += "<b>Body:</b><br>" + new System.IO.StreamReader(Request.Body).ReadToEnd();
             return raw;
         }
     }
