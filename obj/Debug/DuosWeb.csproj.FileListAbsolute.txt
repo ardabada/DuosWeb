@@ -38,3 +38,5 @@ E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.dll
 E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.xml
 E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.Hosting.Aspnet.dll
 E:\Alex job\C#\DuosApphb\DuosWeb\bin\Nancy.Hosting.Aspnet.xml
+E:\Alex job\C#\DuosApphb\DuosWeb\obj\Debug\DuosWeb.csproj.GenerateResource.cache
+E:\Alex job\C#\DuosApphb\DuosWeb\obj\Debug\DuosWeb.Properties.Resources.resources

