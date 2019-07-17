@@ -96,7 +96,7 @@ namespace DuosWeb
                         data = Properties.Resources.LibCrypta;
                         ms = new MemoryStream(data);
                         return Response.FromStream(ms, "application/octet-stream");
-                    case 4:
+                    case 3:
                         data = Properties.Resources.Launcher;
                         ms = new MemoryStream(data);
                         return Response.FromStream(ms, "application/octet-stream");
