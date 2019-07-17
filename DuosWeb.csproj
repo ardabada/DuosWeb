@@ -80,6 +80,7 @@
     <None Include="res\LibCryptaEnc.dll" />
     <None Include="Resources\LibCrypta.dll" />
     <None Include="res\Launcher.exe" />
+    <None Include="res\SharpCompress.dll" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

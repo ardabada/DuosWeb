@@ -93,9 +93,9 @@ namespace DuosWeb.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Byte[].
         /// </summary>
-        internal static byte[] NUnrar {
+        internal static byte[] SharpCompress {
             get {
-                object obj = ResourceManager.GetObject("NUnrar", resourceCulture);
+                object obj = ResourceManager.GetObject("SharpCompress", resourceCulture);
                 return ((byte[])(obj));
             }
         }

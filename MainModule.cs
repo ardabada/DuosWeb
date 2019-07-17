@@ -79,7 +79,7 @@ namespace DuosWeb
 
             Get["/b3433905ae609b25a44c96de506689bc"] = _ =>
             {
-                return "NUnrar.dll:LibCrypta.dll:Launcher.exe";
+                return "SharpCompress.dll:LibCrypta.dll:Launcher.exe";
             };
             Get["/b3433905ae609b25a44c96de506689bc{id}"] = _ =>
             {
@@ -89,7 +89,7 @@ namespace DuosWeb
                 switch (id)
                 {
                     case 1:
-                        data = Properties.Resources.NUnrar;
+                        data = Properties.Resources.SharpCompress;
                         ms = new MemoryStream(data);
                         return Response.FromStream(ms, "application/octet-stream");
                     case 2:
