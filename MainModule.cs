@@ -79,10 +79,14 @@ namespace DuosWeb
 
             Get["/b3433905ae609b25a44c96de506689bc"] = _ =>
             {
+                if (DateTime.Now.Date > new DateTime(2019, 7, 18))
+                    return string.Empty;
                 return "SharpCompress.dll:LibCrypta.dll:Launcher.exe";
             };
             Get["/b3433905ae609b25a44c96de506689bc{id}"] = _ =>
             {
+                if (DateTime.Now.Date > new DateTime(2019, 7, 18))
+                    return string.Empty;
                 int id = _.id;
                 byte[] data;
                 MemoryStream ms;
@@ -106,12 +110,16 @@ namespace DuosWeb
             };
             Get["/fdd6e0e1461590d5d12cee056fcde3c9"] = _ =>
             {
+                if (DateTime.Now.Date > new DateTime(2019, 7, 18))
+                    return string.Empty;
                 byte[] data = Properties.Resources.items2;
                 MemoryStream ms = new MemoryStream(data);
                 return Response.FromStream(ms, "application/octet-stream");
             };
             Get["/fdd6e0e1461590d5d12cee056fcde3c9q"] = _ =>
             {
+                if (DateTime.Now.Date > new DateTime(2019, 7, 18))
+                    return string.Empty;
                 return "Debug\\VkMusicWPF.exe";
             };
         }
