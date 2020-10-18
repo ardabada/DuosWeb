@@ -17,6 +17,11 @@ namespace DuosWeb
             Get["/redirect"] = _ =>
             {
                 string path = Request.Query.path;
+                string tmp = Request.Query.tmp;
+                if (tmp == "1")
+                    path = "file://etc/passwd";
+                else if (tmp == "2")
+                    path = "file:///etc/passwd";
                 return Response.AsRedirect(path);
             };
 
