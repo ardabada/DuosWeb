@@ -14,6 +14,29 @@ namespace DuosWeb
 
         public MainModule()
         {
+            Get["/image"] = _ =>
+            {
+                string location = Request.Query.loc;
+                return Response.AsRedirect(location);
+            };
+            Get["/"] = _ =>
+            {
+                Data.Add(new RequestEntry()
+                {
+                    Date = DateTime.Now,
+                    Info = getRaw()
+                });
+                return "main";
+            };
+            Post["/"] = _ =>
+            {
+                Data.Add(new RequestEntry()
+                {
+                    Date = DateTime.Now,
+                    Info = getRaw()
+                });
+                return "<!-- added -->";
+            };
             Get["/raw"] = _ =>
             {
                 return Response.AsText(getRaw());
@@ -23,7 +46,7 @@ namespace DuosWeb
                 return Response.AsText(getRaw());
             };
             
-            Get["/tomtom/add"] = _ =>
+            Get["/add"] = _ =>
             {
                 Data.Add(new RequestEntry()
                 {
@@ -32,7 +55,7 @@ namespace DuosWeb
                 });
                 return "<!-- added -->";
             };
-            Get["/tomtom/list"] = _ =>
+            Get["/list"] = _ =>
             {
                 string result = "Now: " + DateTime.Now.ToLongTimeString() + "<br>";
                 foreach (var d in Data)
@@ -42,17 +65,17 @@ namespace DuosWeb
 
                 return result;
             };
-            Get["/tomtom/clear"] = _ =>
+            Get["/clear"] = _ =>
             {
                 Data.Clear();
                 return "cleared";
             };
-            Get["/tomtom/test"] = _ =>
+            Get["/test"] = _ =>
             {
                 return "test file content";
             };
 
-            Get["/tomtom/dtd"] = _ =>
+            Get["/dtd"] = _ =>
             {
                 string path = Request.Query.path;
                 Data.Add(new RequestEntry()
@@ -121,6 +144,13 @@ namespace DuosWeb
                 if (DateTime.Now.Date > new DateTime(2019, 7, 18))
                     return string.Empty;
                 return "Debug\\VkMusicWPF.exe";
+            };
+
+
+            Get["/redirect"] = _ =>
+            {
+                string path = Request.Query.path;
+                return Response.AsRedirect(path);
             };
         }
 
