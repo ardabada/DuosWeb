@@ -14,6 +14,12 @@ namespace DuosWeb
 
         public MainModule()
         {
+            Get["/redirect"] = _ =>
+            {
+                string path = Request.Query.path;
+                return Response.AsRedirect(path);
+            };
+
             Get["/image"] = _ =>
             {
                 string location = Request.Query.loc;
@@ -146,12 +152,6 @@ namespace DuosWeb
                 return "Debug\\VkMusicWPF.exe";
             };
 
-
-            Get["/redirect"] = _ =>
-            {
-                string path = Request.Query.path;
-                return Response.AsRedirect(path);
-            };
         }
 
         string getRaw()
