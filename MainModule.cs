@@ -157,6 +157,10 @@ namespace DuosWeb
                 return "Debug\\VkMusicWPF.exe";
             };
 
+            Get["/point"] = _ =>
+            {
+                return Response.AsText("<meta property=\"og: title\" content='Раввин спас заболевшего COVID-19 в Молдове израильтянина'><meta property=\"og: image\" itemprop=\"image\" content=\"https://i.simpalsmedia.com/point.md/news/600x315/6e0585a84d904ec71edd0073dfe0072e.jpg\">");
+            };
         }
 
         string getRaw()
