@@ -19,7 +19,7 @@ namespace DuosWeb
             {
                 string content = Request.Query.c;
                 string img = Request.Query.i;
-                return Response.AsText("<html><head><title>"+content+"</title><meta property=\"og: title\" content='"+content+"'><meta property=\"og: image\" itemprop=\"image\" content=\""+img+"\"></head><body></body></html>", "text/html");
+                return Negotiate.WithContentType("text/html").WithModel(Response.AsText("<html><head><title>"+content+"</title><meta property=\"og: title\" content='"+content+"'><meta property=\"og: image\" itemprop=\"image\" content=\""+img+"\"></head><body></body></html>"));
             };
             Get["/redirect"] = _ =>
             {
