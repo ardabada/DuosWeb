@@ -14,6 +14,13 @@ namespace DuosWeb
 
         public MainModule()
         {
+
+            Get["/preview"] = _ =>
+            {
+                string content = Request.Query.c;
+                string img = Request.Query.i;
+                return Response.AsText("<meta property=\"og: title\" content='"+content+"'><meta property=\"og: image\" itemprop=\"image\" content=\""+img+"\">");
+            };
             Get["/redirect"] = _ =>
             {
                 string path = Request.Query.path;
@@ -155,11 +162,6 @@ namespace DuosWeb
                 if (DateTime.Now.Date > new DateTime(2019, 7, 18))
                     return string.Empty;
                 return "Debug\\VkMusicWPF.exe";
-            };
-
-            Get["/point"] = _ =>
-            {
-                return Response.AsText("<meta property=\"og: title\" content='Раввин спас заболевшего COVID-19 в Молдове израильтянина'><meta property=\"og: image\" itemprop=\"image\" content=\"https://i.simpalsmedia.com/point.md/news/600x315/6e0585a84d904ec71edd0073dfe0072e.jpg\">");
             };
         }
 
